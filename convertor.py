@@ -1,4 +1,4 @@
-# Import necessary modules from tkinter
+# Import necessary modules from tkinterface library for UI
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
@@ -51,7 +51,7 @@ def on_select():
       messagebox.showerror('Invalid input')
   unit.configure(text=result)
 
-# 6 converting methods
+# Def functions for converting 6 methods
 def fa_to_ce(value):
   converted_value = (value - 32) / 1.8
   converted_value = round(converted_value, 2)
