@@ -1,4 +1,4 @@
-# Import necessary modules from tkinter
+# Import necessary modules from tkinterface library for UI
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
@@ -51,7 +51,7 @@ def on_select():
       messagebox.showerror('Invalid input')
   unit.configure(text=result)
 
-# 6 converting methods
+# def functions for 6 converting methods
 def fa_to_ce(value):
   converted_value = (value - 32) / 1.8
   converted_value = round(converted_value, 2)
@@ -82,7 +82,7 @@ def kg_to_lb(value):
   converted_value = round(converted_value, 2)
   return converted_value
 
-# Main window
+# Create and display Main window
 win_main = tk.Tk()
 win_main.title('Convertor')
 win_main.geometry('500x300')
@@ -118,5 +118,5 @@ unit.pack(side='left')
 submit_button = ttk.Button(win_main, text='Convert', command=submit)
 submit_button.pack()
 
-# Mainloop
+# Starts Tkinter Mainloop, keep window open and wait for response.
 win_main.mainloop()
