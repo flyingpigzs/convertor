@@ -51,7 +51,7 @@ def on_select():
       messagebox.showerror('Invalid input')
   unit.configure(text=result)
 
-# def functions for 6 converting methods
+# define functions for 6 converting methods
 def fa_to_ce(value):
   converted_value = (value - 32) / 1.8
   converted_value = round(converted_value, 2)
