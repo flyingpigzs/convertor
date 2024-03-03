@@ -1,7 +1,10 @@
+# Import necessary modules from tkinter
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
+# When user submit the request by clicking "Convert" button, we need to indentify each request and handle it
+# to corresponding function.
 def submit():
   submitted_value = int(entry.get())
   selected_value = combo_box.get()
@@ -27,7 +30,7 @@ def submit():
     case _:
       messagebox.showerror('Invalid input')
 
-# Select action
+# Display different unit when selecting different value in the dropdown box.
 def on_select():
   selected_value = combo_box.get()
   result = ''
@@ -48,6 +51,7 @@ def on_select():
       messagebox.showerror('Invalid input')
   unit.configure(text=result)
 
+# 6 converting methods
 def fa_to_ce(value):
   converted_value = (value - 32) / 1.8
   converted_value = round(converted_value, 2)
@@ -78,14 +82,17 @@ def kg_to_lb(value):
   converted_value = round(converted_value, 2)
   return converted_value
 
+# Main window
 win_main = tk.Tk()
 win_main.title('Convertor')
 win_main.geometry('500x300')
 
+# Instruction Message
 msg_main_text = 'Select what unit you want to convert:'
 msg_main = tk.Label(text=msg_main_text)
 msg_main.pack()
 
+# Dropdown box
 options = ['Fahrenheit to Celsius', 'Celsius To Fahrenheit', 'Miles To Kilometres', 'Kilometres to Miles', 'Pounds to '
                                                                                                        'Kilograms',
            'Kilograms to Pounds']
@@ -94,16 +101,22 @@ combo_box.pack()
 cb = ttk.Combobox()
 combo_box.bind("<<ComboboxSelected>>", lambda event:on_select())
 
+# In order to place input box and unit in the same line, we need to define a frame and put
+# them in the frame together
 frame = ttk.Frame(win_main)
 frame.pack()
 
+# Input box
 entry = ttk.Entry(frame, width=5, justify='center')
 entry.pack(side='left')
 
+# Unit
 unit = tk.Label(frame, text='')
 unit.pack(side='left')
 
+# Submit button
 submit_button = ttk.Button(win_main, text='Convert', command=submit)
 submit_button.pack()
 
+# Mainloop
 win_main.mainloop()
