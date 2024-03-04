@@ -51,7 +51,7 @@ def on_select():
       messagebox.showerror('Invalid input')
   unit.configure(text=result)
 
-# define functions for 6 converting methods
+# define functions for 6 converting methods, also round converted value to 2 digits.
 def fa_to_ce(value):
   converted_value = (value - 32) / 1.8
   converted_value = round(converted_value, 2)
@@ -87,12 +87,12 @@ win_main = tk.Tk()
 win_main.title('Convertor')
 win_main.geometry('500x300')
 
-# Instruction Message
+# Create Instruction Message
 msg_main_text = 'Select what unit you want to convert:'
 msg_main = tk.Label(text=msg_main_text)
 msg_main.pack()
 
-# Dropdown box
+# Create a Dropdown box, which has 6 options to choose, and put it in the center.
 options = ['Fahrenheit to Celsius', 'Celsius To Fahrenheit', 'Miles To Kilometres', 'Kilometres to Miles', 'Pounds to '
                                                                                                        'Kilograms',
            'Kilograms to Pounds']
@@ -106,7 +106,7 @@ combo_box.bind("<<ComboboxSelected>>", lambda event:on_select())
 frame = ttk.Frame(win_main)
 frame.pack()
 
-# Input box
+# Create Input box to enter value
 entry = ttk.Entry(frame, width=5, justify='center')
 entry.pack(side='left')
 
@@ -114,9 +114,9 @@ entry.pack(side='left')
 unit = tk.Label(frame, text='')
 unit.pack(side='left')
 
-# Submit button
+# Create Convert button
 submit_button = ttk.Button(win_main, text='Convert', command=submit)
 submit_button.pack()
 
-# Starts Tkinter Mainloop, keep window open and wait for response.
+# Start event mainloop, keep window open and wait for response.
 win_main.mainloop()
